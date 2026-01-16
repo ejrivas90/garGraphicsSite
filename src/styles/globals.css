@@ -20,9 +20,17 @@ a:hover:not(.button) {
 
 #nav {
     background-color:rgba(88,88,88,.6);
+    width:80vw;
+    margin:auto;
+    border-radius:25px;
 }
+
+
 #navLogo {
-    display:flex;
-    align-items:center;
+ padding-left:2%;
+}
+
+#navLogo > h1{
+    justify-self:center;
 }
     
