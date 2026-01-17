@@ -10,39 +10,47 @@ const navItems = [
 ];
 ---
 
-<nav class="flex flex-wrap items-center gap-4 pt-6 sm:pt-12" id="nav">
-    <a href="/" id="navLogo">
-        <Logo />
-        <h1>Gar Graphics</h1>
-    </a>
-    <div class="hamburgerIcon">
+<header class="sticky">
+    <nav class="flex flex-wrap items-center gap-4" id="nav">
+        <a href="/" id="navLogo" class="pt-[2%]">
+            <Logo />
+            <h1>Gar Graphics</h1>
+        </a>
+        <div class="hamburgerIcon" id="navIcon">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+        
+
+        <div style="display:none">
+        {
+            !!navItems?.length && (
+                <ul class="flex flex-wrap gap-x-4 gap-y-1" id="desktopNav">
+                    {navItems.map((item) => (
+                        <li>
+                            <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2 nav-link text-gray-100">
+                                {item.linkText}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            )
+        }
+        </div>
+    </nav>
+</header>
+<div id="hambPanel" style="display:none">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
-    </div>
-
-    <div style="display:none">
-    {
-        !!navItems?.length && (
-            <ul class="flex flex-wrap gap-x-4 gap-y-1" id="desktopNav">
-                {navItems.map((item) => (
-                    <li>
-                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2 nav-link text-gray-100">
-                            {item.linkText}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-            
-        )
-    }
-    </div>
-</nav>
+</div>
 <style>
 .bar1, .bar2, .bar3 {
   width: 35px;
   height: 5px;
-  background-color: pink;
+  background-color: white;
   margin: 6px 0;
   transition: 0.4s;
 }
@@ -51,4 +59,44 @@ const navItems = [
     margin-left: auto;
     padding-right:3%;
 }
+
+#hambPanel{
+    z-index:2;
+    background-color: black;
+    position: absolute;
+    width:80vw;
+    height:100%;
+    justify-self: center;
+}
+
+.change .bar1 {
+-webkit-transform: rotate(-45deg) translate(-9px, 6px);
+transform: rotate(-45deg) translate(-9px, 6px);
+justify-self:end;
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+-webkit-transform: rotate(45deg) translate(-8px, -8px);
+transform: rotate(45deg) translate(-8px, -8px);
+justify-self:end;
+}
 </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function(e) {
+        const navIcon = document.getElementById("navIcon");
+        navIcon.addEventListener("click", function() {ShowHide(this);}, false );
+    });
+    
+    function ShowHide(x) {
+        x.classList.toggle("change");
+        var Menu = document.getElementById("hambPanel");
+        console.log(Menu.style.display);
+        if (Menu.style.display === "none") {
+            Menu.style.display = "block";
+        } else {
+            Menu.style.display = "none";
+        }
+    }
+</script>
