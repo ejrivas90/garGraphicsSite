@@ -1,5 +1,6 @@
 ---
 import Logo from '../components/Logo.astro';
+import "../../src/styles/header.css";
 
 const navItems = [
     { linkText: 'Home', href: '/' },
@@ -10,22 +11,59 @@ const navItems = [
 ];
 ---
 
-<nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">
-    <a href="/">
-        <Logo />
-    </a>
-    {
-        !!navItems?.length && (
-            <ul class="flex flex-wrap gap-x-4 gap-y-1" id="desktopNav">
-                {navItems.map((item) => (
-                    <li>
-                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
-                            {item.linkText}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-            
-        )
+<header class="sticky">
+    <div class="flex flex-wrap flex-row items-center gap-4" id="headerPanel">
+        <a href="/" id="headerLogo" class="pt-[2%]">
+            <!--
+            <Logo />
+             -->
+            <h1>Gar Graphics</h1>
+        </a>
+        <div class="hamburgerIcon" id="navIcon">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </div>
+    <nav id="nav">
+        <div id="hambPanel" style="display:none">
+            <div class="pr-[3%] py-[5%] ml-auto w-fit">
+                <Logo />
+            </div>
+            {
+                !!navItems?.length && (
+                    <ul class="flex flex-wrap gap-x-4 gap-y-1 navUl">
+                        {navItems.map((item) => (
+                            <li>
+                                <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2 nav-link text-gray-100">
+                                    {item.linkText}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                )
+            }
+        </div>
+        <div style="display:none">
+        
+        </div>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(e) {
+        const navIcon = document.getElementById("navIcon");
+        navIcon.addEventListener("click", function() {ShowHide(this);}, false );
+    });
+    
+    function ShowHide(x) {
+        x.classList.toggle("change");
+        var Menu = document.getElementById("hambPanel");
+        console.log(Menu.style.display);
+        if (Menu.style.display === "none") {
+            Menu.style.display = "block";
+        } else {
+            Menu.style.display = "none";
+        }
     }
-</nav>
+</script>
