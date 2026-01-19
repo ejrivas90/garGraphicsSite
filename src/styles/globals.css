@@ -17,4 +17,9 @@ a:not(.button) {
 a:hover:not(.button) {
     color:#FFFFFF;
 }
+
+@font-face {
+    font-family: itcedscr;
+    src: url(../assets/fonts/ITCEDSCR.TTF);
+}
     
