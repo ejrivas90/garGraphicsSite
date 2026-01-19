@@ -1,5 +1,6 @@
 ---
 import Logo from '../components/Logo.astro';
+import "../../src/styles/header.css";
 
 const navItems = [
     { linkText: 'Home', href: '/' },
@@ -11,9 +12,11 @@ const navItems = [
 ---
 
 <header class="sticky">
-    <nav class="flex flex-wrap items-center gap-4" id="nav">
-        <a href="/" id="navLogo" class="pt-[2%]">
+    <div class="flex flex-wrap flex-row items-center gap-4" id="headerPanel">
+        <a href="/" id="headerLogo" class="pt-[2%]">
+            <!--
             <Logo />
+             -->
             <h1>Gar Graphics</h1>
         </a>
         <div class="hamburgerIcon" id="navIcon">
@@ -21,68 +24,32 @@ const navItems = [
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
-
-        
-
+    </div>
+    <nav id="nav">
+        <div id="hambPanel" style="display:none">
+            <div class="pr-[3%] py-[5%] ml-auto w-fit">
+                <Logo />
+            </div>
+            {
+                !!navItems?.length && (
+                    <ul class="flex flex-wrap gap-x-4 gap-y-1 navUl">
+                        {navItems.map((item) => (
+                            <li>
+                                <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2 nav-link text-gray-100">
+                                    {item.linkText}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                )
+            }
+        </div>
         <div style="display:none">
-        {
-            !!navItems?.length && (
-                <ul class="flex flex-wrap gap-x-4 gap-y-1" id="desktopNav">
-                    {navItems.map((item) => (
-                        <li>
-                            <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2 nav-link text-gray-100">
-                                {item.linkText}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            )
-        }
+        
         </div>
     </nav>
 </header>
-<div id="hambPanel" style="display:none">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-</div>
-<style>
-.bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: white;
-  margin: 6px 0;
-  transition: 0.4s;
-}
 
-.hamburgerIcon {
-    margin-left: auto;
-    padding-right:3%;
-}
-
-#hambPanel{
-    z-index:2;
-    background-color: black;
-    position: absolute;
-    width:80vw;
-    height:100%;
-    justify-self: center;
-}
-
-.change .bar1 {
--webkit-transform: rotate(-45deg) translate(-9px, 6px);
-transform: rotate(-45deg) translate(-9px, 6px);
-justify-self:end;
-}
-
-.change .bar2 {opacity: 0;}
-
-.change .bar3 {
--webkit-transform: rotate(45deg) translate(-8px, -8px);
-transform: rotate(45deg) translate(-8px, -8px);
-justify-self:end;
-}
-</style>
 <script>
     document.addEventListener("DOMContentLoaded", function(e) {
         const navIcon = document.getElementById("navIcon");

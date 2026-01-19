@@ -1,0 +1,61 @@
+#headerPanel {
+    background-color:rgba(88,88,88,.6);
+    width:80vw;
+    margin:auto;
+    border-radius:25px;
+}
+
+
+#headerLogo {
+ padding-left:2%;
+ margin:auto;
+}
+
+#headerLogo > h1{
+    justify-self:center;
+    --webkit-font-family:'Brush Script MT', cursive;
+    --webkit-font-size:xx-large;
+    font-size:xx-large;
+    font-family:'Brush Script MT', cursive;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.hamburgerIcon {
+    padding-right:5%;
+}
+
+#hambPanel{
+    z-index:2;
+    background-color: black;
+    position: absolute;
+    width:80vw;
+    height:80vh;
+    min-height: fit-content;
+    justify-self: center;
+}
+
+.change .bar1 {
+-webkit-transform: rotate(-45deg) translate(-9px, 6px);
+transform: rotate(-45deg) translate(-9px, 6px);
+justify-self:end;
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+-webkit-transform: rotate(45deg) translate(-8px, -8px);
+transform: rotate(45deg) translate(-8px, -8px);
+justify-self:end;
+}
+
+.navUl {
+    flex-direction: column;
+    align-content: end;
+}
