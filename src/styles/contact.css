@@ -1,0 +1,70 @@
+.contactFieldContainer {
+    background-color:rgba(88, 88, 88, .8);
+    width:80vw;
+    margin-top:5vh;
+    margin-bottom:3vh;
+    margin-left:auto;
+    margin-right:auto;
+    color:white;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.containerSegement {
+    flex: 1 0 50%;
+}
+
+.bannerContainer {
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+}
+
+.inputFields {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3vw;
+    justify-content: center;
+    align-content: center;
+}
+input:not([type="submit"]), textarea {
+    border-radius: 6px;
+    border: 1px solid white;
+    background-color: rgb(192, 192, 192);
+    color:black;
+}
+
+input[type="submit"] {
+    background-color: red;
+    color: black;
+    border-radius: 6px;
+    border: 1px solid rgb(192, 192, 192);
+    padding: 0.5vh 1vw;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.inputFormLabel {
+    margin:auto;
+}
+
+.fileUpload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width:100%;
+    text-align:center;
+}
+
+#fileNameContainer {
+    border: 3px solid black;
+    text-align:center;
+    display:none;
+    height:auto;
+}

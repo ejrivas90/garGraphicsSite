@@ -1,7 +1,88 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import "../styles/contact.css";
 ---
 
 <Layout>
-
+    <div class="contactFieldContainer w-[initial] md:w-fit! px-[unset] md:px-[5%]">
+        <div class="containerSegement text-center pt-[5%] md:pt-[1%]">
+            <h1 class="text-2xl font-bold justify-self-center">Follow Us</h1>
+            <div class="basis-[40%]">
+                <a class="fa fa-thumbs-up fa-2x" />
+            </div>
+            <div class="w-[90%] justify-self-center pb-[3%]">
+                <p class="pb-[3%]">
+                    Follow us on social media to see our latest work and updates!
+                </p>
+                <div class="justify-center justify-self-center flex w-[50%] flex-row gap-[10vw] md:gap-[3vw]">
+                    
+                    <div class="">
+                        <a href="https://facebook.com/gilbert.a.rivas" target="_blank" alt="Facebook" aria-label="Facebook" class="fa fa-facebook padding-8 fa-2x"> </a>
+                    </div>
+                    <div class="">
+                        <a href="https://instagram.com/gar_graphics" target="_blank" alt="Instagram" aria-label="Instagram" class="fa fa-instagram padding-8 fa-2x">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contactFieldContainer">
+        <div class="containerSegement text-center pt-[5%] md:pt-[3%]">
+            <h1 class="text-2xl font-bold justify-self-center">Contact Us</h1>
+            <div class="w-[90%] justify-self-center p-[3%]">
+                <p class="pb-[3vh]">
+                    Looking for something special for a friend or family member? Looking for that perfect customized gift?
+                </p>
+                <p class="pb-[3vh]">
+                    For commisions or inquiries, please fill out the contact form. Include a description or upload an inspiration image of what you are looking for.
+                </p>
+            </div>
+        </div>
+        <div class="containerSegement">
+            <form method="POST" data-netlify="true" name="contact">
+                <div class="inputFields pb-[5%] pt-[5%] ">
+                    <input type="hidden" name="subject" value="New Injury from Site"/>
+                    <div class="flex flex-col flex-wrap w-[initial] lg:w-[35%]">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="flex flex-col flex-wrap w-[initial] lg:w-[35%]">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="flex flex-col flex-wrap w-[80%]">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <div class="w-[80%]">
+                        <label for="inspirationFileUpload" class="fileUpload" id="uploadIcon">
+                            <i class="fa fa-cloud-upload fa-3x" tabindex="8"></i>
+                        </label>
+                        <input type="file" id="inspirationFileUpload" name="inspirationFile" multiple />
+                        <div id="fileNameContainer">
+                            <p id="fileNames" style="overflow:auto;margin:15px"></p>
+                        </div>
+                        <script>
+                            document.getElementById('inspirationFileUpload').addEventListener('change', function (e) {
+                                if (e.target.files[0]) {
+                                    console.log(e.target.files);
+                                    let selectedFiles = Array.from(e.target.files)
+                                        .map((file) => file.name)
+                                        .join(', ');
+                                    document.getElementById('fileNames').textContent = selectedFiles;
+                                    document.getElementById('uploadIcon').style.display = 'none';
+                                    document.getElementById('fileNameContainer').style.display = 'block';
+                                }
+                            });
+                        </script>
+                    </div>
+                    <div class="justify-center flex basis-full">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 </Layout>
