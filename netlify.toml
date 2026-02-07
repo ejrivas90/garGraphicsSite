@@ -1,0 +1,3 @@
+[dev]
+  targetPort = 4321
+  port = 8888

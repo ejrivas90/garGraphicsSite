@@ -13,10 +13,10 @@
 
 #headerLogo > h1{
     justify-self:center;
-    --webkit-font-family:'Brush Script MT', cursive;
+    --webkit-font-family:itcedscr;
     --webkit-font-size:xx-large;
     font-size:xx-large;
-    font-family:'Brush Script MT', cursive;
+    font-family:itcedscr;
 }
 
 .bar1, .bar2, .bar3 {
