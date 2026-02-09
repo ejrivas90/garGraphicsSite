@@ -59,3 +59,14 @@ justify-self:end;
     flex-direction: column;
     align-content: end;
 }
+
+.logoImg.logoRotation {
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
+    transition-delay: 1s;
+    transition-timing-function: ease-in;
+    transform: rotate(1440deg);
+
+}
