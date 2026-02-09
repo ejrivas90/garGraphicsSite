@@ -4,9 +4,8 @@ import "../../src/styles/header.css";
 
 const navItems = [
     { linkText: 'Home', href: '/' },
-    { linkText: 'Revalidation', href: '/revalidation' },
-    { linkText: 'Image CDN', href: '/image-cdn' },
-    { linkText: 'Edge Function', href: '/edge' },
+    { linkText: '3D Printing', href: '/3dprinting' },
+    { linkText: 'WoodWork', href: '/woodwork' },
     { linkText: 'Contact', href: '/contact' }
 ];
 ---
@@ -27,20 +26,22 @@ const navItems = [
     </div>
     <nav id="nav">
         <div id="hambPanel" style="display:none">
-            <div class="pr-[3%] py-[5%] ml-auto w-fit">
+            <div class="pr-[3%] py-[5%] ml-auto w-fit h-[50%] flex items-center logoContainer" id="logoContainer">
                 <Logo />
             </div>
             {
                 !!navItems?.length && (
-                    <ul class="flex flex-wrap gap-x-4 gap-y-1 navUl">
-                        {navItems.map((item) => (
-                            <li>
-                                <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2 nav-link text-gray-100">
-                                    {item.linkText}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                    <div class="flex flex-col justify-end align-end h-[50%]">
+                        <ul class="flex flex-wrap gap-x-4 gap-y-1 navUl text-2xl pb-[1%] pr-[2%]">
+                            {navItems.map((item) => (
+                                <li>
+                                    <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2 nav-link text-gray-100">
+                                        {item.linkText}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 )
             }
         </div>
@@ -62,8 +63,23 @@ const navItems = [
         console.log(Menu.style.display);
         if (Menu.style.display === "none") {
             Menu.style.display = "block";
+            rotateLogo();
         } else {
             Menu.style.display = "none";
+            resetLogoRotation();
         }
+    }
+
+    function rotateLogo() {
+        setTimeout(function() {
+            const logoImg = document.getElementById("logoImg");
+            console.log(logoImg);
+            logoImg.classList.add("logoRotation");
+        }, 50);
+    }
+
+    function resetLogoRotation() {
+        const logoImg = document.getElementById("logoImg");
+        logoImg.classList.remove("logoRotation");
     }
 </script>
