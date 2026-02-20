@@ -2,10 +2,68 @@
 import astroLogo from '../assets/astro.svg';
 import background from '../assets/gargraphicsbck.png';
 import '../styles/globals.css';
+import {Image} from 'astro:assets';
+import threeDicon from '../assets/pictures/3D Printing icon.png';
+import laserEngIcon from '../assets/pictures/laser eng icon.png';
 ---
 
 <div id="container">
-	<main>
-		
+	<main >
+		<div>
+			<div class="p-3 justify-items-center">
+				<div class="headerTextContainer rye-regular" style="border-radius: 25px 25px 25px 0px">
+					<h1 class="text-2xl">
+						Graphic Design to Craft Creations
+					</h1>
+				</div>
+				<div class="headerTextContainer" style="border-radius: 0px 25px 25px 25px">
+					<h2 class="text-xl" style="font-family:serif">
+						Graphic designs brought to life in custom craft work, trinkets, decor, and more! We can create custom pieces for you or your loved ones.
+					</h2>
+				</div>
+			</div>
+		</div>
+		<div class="deskProdContainer">
+			<div class="productContainer md:gap-15">
+				<div class="w-[45%] p-[1em]">
+					<h2 class="pb-3">
+						3D Printing of creative crafts, or utility items
+					</h2>
+					<a href="/3dprinting" class="w-full md:w-1/2">
+						<Image src={threeDicon} alt="3D Printing Icon"/>
+					</a>
+				</div>
+				<div class="w-[45%] p-[1em]">
+					<h2 class="pb-3">
+						Laser Engraving and cutting on a number of matarials including wood, glass, and slate
+					</h2>
+					<a href="/woodwork" class="w-full md:w-[35%]">
+						<Image src={laserEngIcon} alt="Laser engraving Icon" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="mobileProdContainer">
+			<div class="productContainer">
+				<h2 class="basis-1/2">
+					3D Printing of creative crafts, or utility items
+				</h2>
+				<span class="basis-1/2 self-center">
+					<a href="/3dprinting" class="imgLink">
+						<Image src={threeDicon} alt="3D Printing Icon" />
+					</a>
+				</span>
+			</div>
+			<div class="productContainer" style="justify-self:start !important;">
+				<span class="basis-1/2 self-center">
+					<a href="/woodwork" class="imgLink">
+						<Image src={laserEngIcon} alt="Laser engraving Icon" />
+					</a>
+				</span>
+				<h2 class="basis-1/2 pl-3">
+					Laser Engraving and cutting on a number of matarials including wood, glass, and slate
+				</h2>
+			</div>
+		</div>
 	</main>	
 </div>

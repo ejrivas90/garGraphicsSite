@@ -65,7 +65,6 @@ justify-self:end;
     -moz-transition: 3s;
     -o-transition: 3s;
     transition: 3s;
-    transition-delay: 1s;
     transition-timing-function: ease-in;
     transform: rotate(1440deg);
 
