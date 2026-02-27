@@ -33,7 +33,7 @@
 
 #hambPanel{
     z-index:2;
-    background-color: black;
+    background-color: rgba(88,88,88);
     position: absolute;
     width:80vw;
     height:80vh;
@@ -60,13 +60,16 @@ justify-self:end;
     align-content: end;
 }
 
+.logoImg {
+    width:30%;
+}
+
 .logoImg.logoRotation {
     -webkit-transition: 3s;
     -moz-transition: 3s;
     -o-transition: 3s;
     transition: 3s;
-    transition-delay: 1s;
     transition-timing-function: ease-in;
-    transform: rotate(1440deg);
+    transform: rotate(-1440deg);
 
 }
